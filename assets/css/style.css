@@ -1,0 +1,965 @@
+/* ==========================================================
+   WP Psychometric Test Pro — style.css
+   Version: 2.0.0
+   ========================================================== */
+
+/* ----- 1. CSS Custom Properties ----- */
+:root {
+  --psycho-primary: #6c63ff;
+  --psycho-secondary: #f50057;
+  --psycho-success: #00c853;
+  --psycho-warning: #ff9800;
+  --psycho-danger: #f44336;
+  --psycho-dark: #1a1a2e;
+  --psycho-text: #2d3748;
+  --psycho-muted: #718096;
+  --psycho-border: #e2e8f0;
+  --psycho-bg: #f7f8fc;
+  --psycho-card-bg: #ffffff;
+  --psycho-radius: 16px;
+  --psycho-shadow: 0 8px 32px rgba(108,99,255,0.10);
+  --psycho-shadow-lg: 0 20px 60px rgba(108,99,255,0.16);
+}
+
+/* ----- 2. Base Reset ----- */
+.psycho-portal *,
+.psycho-portal *::before,
+.psycho-portal *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.psycho-portal {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--psycho-text);
+  background: var(--psycho-bg);
+  padding: 24px 16px 48px;
+  max-width: 860px;
+  margin: 0 auto;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ----- 3. Cards ----- */
+.psycho-card {
+  background: var(--psycho-card-bg);
+  border-radius: var(--psycho-radius);
+  box-shadow: var(--psycho-shadow);
+  border: 1px solid var(--psycho-border);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.psycho-card .inside,
+.psycho-entry-card {
+  padding: 40px;
+}
+
+/* ----- 4. Entry Hero ----- */
+.psycho-entry-hero {
+  text-align: center;
+  padding: 32px 0 24px;
+}
+
+.psycho-hero-icon {
+  font-size: 64px;
+  line-height: 1;
+  margin-bottom: 16px;
+  display: block;
+  animation: psycho-float 3s ease-in-out infinite;
+}
+
+@keyframes psycho-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+.psycho-entry-hero h2 {
+  font-size: clamp(22px, 4vw, 30px);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--psycho-primary), #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.psycho-entry-hero p {
+  color: var(--psycho-muted);
+  font-size: 16px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ----- 5. Form ----- */
+.psycho-form {
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.psycho-field {
+  margin-bottom: 20px;
+}
+
+.psycho-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--psycho-text);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.psycho-label-icon {
+  font-size: 14px;
+}
+
+.psycho-label .req {
+  color: var(--psycho-danger);
+  font-weight: 700;
+}
+
+.psycho-input {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--psycho-border);
+  border-radius: 10px;
+  font-size: 15px;
+  color: var(--psycho-text);
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.psycho-input:focus {
+  border-color: var(--psycho-primary);
+  box-shadow: 0 0 0 3px rgba(108,99,255,0.15);
+}
+
+.psycho-input.shake {
+  animation: psycho-shake 0.4s ease;
+}
+
+@keyframes psycho-shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-6px); }
+  40%       { transform: translateX(6px); }
+  60%       { transform: translateX(-4px); }
+  80%       { transform: translateX(4px); }
+}
+
+/* ----- 6. Two Column ----- */
+.psycho-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ----- 7. Consent Checkbox ----- */
+.psycho-consent {
+  margin-bottom: 24px;
+}
+
+.psycho-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--psycho-muted);
+  line-height: 1.5;
+}
+
+.psycho-checkbox-label input[type="checkbox"] {
+  display: none;
+}
+
+.psycho-checkmark {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--psycho-border);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  margin-top: 2px;
+  background: #fff;
+}
+
+.psycho-checkbox-label input:checked ~ .psycho-checkmark {
+  background: var(--psycho-primary);
+  border-color: var(--psycho-primary);
+}
+
+.psycho-checkbox-label input:checked ~ .psycho-checkmark::after {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 9px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg) translateY(-1px);
+}
+
+.psycho-checkbox-label a {
+  color: var(--psycho-primary);
+  text-decoration: underline;
+}
+
+/* ----- 8. Buttons ----- */
+.psycho-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 24px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid transparent;
+  text-decoration: none;
+  transition: all 0.2s;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.psycho-btn:focus {
+  outline: 3px solid rgba(108,99,255,0.3);
+  outline-offset: 2px;
+}
+
+.psycho-btn-primary {
+  background: linear-gradient(135deg, var(--psycho-primary), #8b5cf6);
+  color: #fff;
+  border-color: transparent;
+}
+
+.psycho-btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(108,99,255,0.35);
+}
+
+.psycho-btn-outline {
+  background: transparent;
+  color: var(--psycho-primary);
+  border-color: var(--psycho-primary);
+}
+
+.psycho-btn-outline:hover:not(:disabled) {
+  background: rgba(108,99,255,0.08);
+}
+
+.psycho-btn-ghost {
+  background: transparent;
+  color: var(--psycho-muted);
+  border-color: var(--psycho-border);
+}
+
+.psycho-btn-ghost:hover:not(:disabled) {
+  background: var(--psycho-bg);
+}
+
+.psycho-btn-full {
+  width: 100%;
+}
+
+.psycho-btn-lg {
+  padding: 14px 32px;
+  font-size: 16px;
+  border-radius: 12px;
+}
+
+.psycho-btn-sm {
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 7px;
+}
+
+.psycho-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* ----- 9. Messages ----- */
+.psycho-msg {
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.psycho-msg::before {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.psycho-msg-success {
+  background: #e6f9ed;
+  color: #1b7742;
+  border: 1px solid #a3e8bb;
+}
+
+.psycho-msg-success::before { content: '✅'; }
+
+.psycho-msg-error {
+  background: #fff0f0;
+  color: #c0392b;
+  border: 1px solid #fcc;
+}
+
+.psycho-msg-error::before { content: '❌'; }
+
+.psycho-msg-info {
+  background: #f0f4ff;
+  color: #3b48c0;
+  border: 1px solid #bfceff;
+}
+
+.psycho-msg-info::before { content: 'ℹ️'; }
+
+/* ----- 10. Welcome Bar ----- */
+.psycho-welcome-bar {
+  background: linear-gradient(135deg, var(--psycho-primary), #8b5cf6);
+  border-radius: var(--psycho-radius);
+  padding: 14px 24px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.psycho-welcome-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.psycho-welcome-text {
+  font-size: 15px;
+}
+
+/* ----- 11. Tests Grid ----- */
+.psycho-section-title {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--psycho-text);
+}
+
+.psycho-section-sub {
+  color: var(--psycho-muted);
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.psycho-tests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* ----- 12. Test Cards ----- */
+.psycho-test-card {
+  background: var(--psycho-card-bg);
+  border: 2px solid var(--psycho-border);
+  border-radius: var(--psycho-radius);
+  padding: 24px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.psycho-test-card:hover {
+  border-color: var(--psycho-primary);
+  box-shadow: var(--psycho-shadow-lg);
+  transform: translateY(-3px);
+}
+
+.psycho-test-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.psycho-test-icon {
+  font-size: 30px;
+  line-height: 1;
+}
+
+.psycho-test-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--psycho-text);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.psycho-test-desc {
+  font-size: 14px;
+  color: var(--psycho-muted);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.psycho-test-meta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.psycho-meta-item {
+  font-size: 13px;
+  color: var(--psycho-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.psycho-meta-locked {
+  font-size: 18px;
+  margin-left: auto;
+}
+
+/* ----- 13. Tags / Badges ----- */
+.psycho-tag {
+  display: inline-block;
+  background: rgba(108,99,255,0.1);
+  color: var(--psycho-primary);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+/* ----- 14. Passkey Modal ----- */
+.psycho-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26,26,46,0.65);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.psycho-modal-box {
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px 36px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--psycho-shadow-lg);
+  animation: psycho-modal-in 0.3s cubic-bezier(0.175,0.885,0.32,1.275);
+}
+
+@keyframes psycho-modal-in {
+  from { opacity: 0; transform: scale(0.85) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.psycho-modal-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.psycho-modal-box h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--psycho-text);
+}
+
+.psycho-modal-hint {
+  font-size: 13px;
+  color: var(--psycho-muted);
+  margin-bottom: 16px;
+}
+
+.psycho-modal-box .psycho-input {
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.psycho-modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* ----- 15. Exam ----- */
+.psycho-exam-card {
+  padding: 0;
+}
+
+.psycho-exam-header {
+  background: linear-gradient(135deg, var(--psycho-dark), #2d2b5e);
+  padding: 24px 32px;
+  color: #fff;
+}
+
+.psycho-exam-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.psycho-exam-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+/* ----- 16. Timer ----- */
+.psycho-timer-box {
+  background: rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.psycho-timer-box.warning {
+  background: rgba(255,152,0,0.3);
+  color: #ffeb3b;
+}
+
+.psycho-timer-box.danger {
+  background: rgba(244,67,54,0.3);
+  animation: psycho-blink 1s infinite;
+}
+
+@keyframes psycho-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+/* ----- 17. Progress Bar ----- */
+.psycho-progress-wrap {
+  padding: 16px 32px;
+  background: #fff;
+  border-bottom: 1px solid var(--psycho-border);
+}
+
+.psycho-progress-bar {
+  height: 8px;
+  background: var(--psycho-border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.psycho-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--psycho-primary), #a78bfa);
+  border-radius: 8px;
+  transition: width 0.4s ease;
+}
+
+.psycho-progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--psycho-muted);
+}
+
+/* ----- 18. Questions ----- */
+.psycho-questions-container {
+  padding: 24px 32px;
+}
+
+.psycho-q-block {
+  background: #fff;
+  border: 2px solid var(--psycho-border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  transition: border-color 0.2s;
+}
+
+.psycho-q-block.answered {
+  border-color: var(--psycho-success);
+}
+
+.psycho-q-number {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--psycho-muted);
+  margin-bottom: 8px;
+}
+
+.psycho-q-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--psycho-text);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.psycho-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.psycho-option-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 2px solid var(--psycho-border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 15px;
+  color: var(--psycho-text);
+}
+
+.psycho-option-label:hover {
+  border-color: var(--psycho-primary);
+  background: rgba(108,99,255,0.04);
+}
+
+.psycho-option-label input[type="radio"] {
+  display: none;
+}
+
+.psycho-radio-circle {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--psycho-border);
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.psycho-option-label.selected {
+  border-color: var(--psycho-primary);
+  background: rgba(108,99,255,0.08);
+}
+
+.psycho-option-label.selected .psycho-radio-circle {
+  background: var(--psycho-primary);
+  border-color: var(--psycho-primary);
+}
+
+.psycho-option-label.selected .psycho-radio-circle::after {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+/* ----- 19. Exam Footer ----- */
+.psycho-exam-footer {
+  padding: 20px 32px 32px;
+  text-align: center;
+  border-top: 1px solid var(--psycho-border);
+}
+
+.psycho-unanswered-note {
+  font-size: 13px;
+  color: var(--psycho-warning);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* ----- 20. Results ----- */
+.psycho-result-card {
+  text-align: center;
+  padding: 48px 40px 40px;
+}
+
+.psycho-result-emoji {
+  font-size: 56px;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.psycho-result-meta {
+  margin-bottom: 24px;
+}
+
+.psycho-result-name-label {
+  font-size: 16px;
+  color: var(--psycho-muted);
+  margin-bottom: 4px;
+}
+
+.psycho-result-test-name {
+  font-size: 14px;
+  color: var(--psycho-muted);
+}
+
+/* ----- 21. Score Ring ----- */
+.psycho-score-ring-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.psycho-score-center {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.psycho-score-number {
+  font-size: 38px;
+  font-weight: 900;
+  color: var(--psycho-text);
+  line-height: 1;
+}
+
+.psycho-score-label-sm {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--psycho-muted);
+}
+
+/* ----- 22. Result Label & Desc ----- */
+.psycho-result-label {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.psycho-result-desc {
+  font-size: 16px;
+  color: var(--psycho-muted);
+  max-width: 560px;
+  margin: 0 auto 24px;
+  line-height: 1.7;
+}
+
+.psycho-recommendation-box {
+  background: #f0f4ff;
+  border-left: 4px solid var(--psycho-primary);
+  border-radius: 0 12px 12px 0;
+  padding: 20px 24px;
+  text-align: left;
+  margin: 0 auto 24px;
+  max-width: 560px;
+}
+
+.psycho-recommendation-box h4 {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--psycho-primary);
+  margin-bottom: 8px;
+}
+
+.psycho-recommendation-box p {
+  font-size: 15px;
+  color: var(--psycho-text);
+  line-height: 1.7;
+}
+
+/* ----- 23. Traits Card ----- */
+.psycho-traits-card {
+  padding: 32px;
+}
+
+.psycho-traits-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.psycho-traits-list {
+  margin-bottom: 32px;
+}
+
+.psycho-trait-row {
+  margin-bottom: 16px;
+}
+
+.psycho-trait-name {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--psycho-text);
+}
+
+.psycho-trait-bar-bg {
+  background: var(--psycho-border);
+  border-radius: 8px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.psycho-trait-bar-fill {
+  height: 100%;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--psycho-primary), #a78bfa);
+  width: 0;
+  transition: width 1s ease 0.3s;
+}
+
+.psycho-chart-wrap {
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+/* ----- 24. Result Actions ----- */
+.psycho-result-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 8px 0 24px;
+}
+
+/* ----- 25. Empty State ----- */
+.psycho-empty-state {
+  text-align: center;
+  padding: 48px 20px;
+}
+
+.psycho-empty-icon {
+  font-size: 56px;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.psycho-empty-state h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--psycho-text);
+}
+
+.psycho-empty-state p {
+  color: var(--psycho-muted);
+  font-size: 15px;
+}
+
+/* ----- 26. Confetti ----- */
+.psycho-confetti-wrap {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  overflow: hidden;
+}
+
+.psycho-confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  animation: psycho-confetti-fall linear forwards;
+}
+
+@keyframes psycho-confetti-fall {
+  0%   { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+/* ----- 27. Responsive ----- */
+@media (max-width: 640px) {
+  .psycho-portal {
+    padding: 12px 10px 32px;
+  }
+
+  .psycho-card .inside,
+  .psycho-entry-card {
+    padding: 24px 20px;
+  }
+
+  .psycho-two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .psycho-tests-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .psycho-exam-header {
+    padding: 18px 20px;
+  }
+
+  .psycho-exam-header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .psycho-questions-container {
+    padding: 16px 20px;
+  }
+
+  .psycho-exam-footer {
+    padding: 16px 20px 24px;
+  }
+
+  .psycho-result-card {
+    padding: 32px 20px;
+  }
+
+  .psycho-traits-card {
+    padding: 24px 20px;
+  }
+
+  .psycho-result-actions {
+    flex-direction: column;
+  }
+
+  .psycho-btn-lg {
+    width: 100%;
+  }
+
+  .psycho-modal-box {
+    padding: 28px 20px;
+  }
+
+  .psycho-welcome-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
