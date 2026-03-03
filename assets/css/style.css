@@ -1,0 +1,1066 @@
+/* WP Psychometric Test Pro — Main Stylesheet */
+
+/* =============================================
+   1. CSS CUSTOM PROPERTIES
+   ============================================= */
+:root {
+  --psycho-primary:   #6c63ff;
+  --psycho-secondary: #f50057;
+  --psycho-success:   #00c853;
+  --psycho-warning:   #ff9800;
+  --psycho-danger:    #f44336;
+  --psycho-dark:      #1a1a2e;
+  --psycho-text:      #2d3748;
+  --psycho-muted:     #718096;
+  --psycho-border:    #e2e8f0;
+  --psycho-bg:        #f7f8fc;
+  --psycho-card-bg:   #ffffff;
+  --psycho-radius:    16px;
+  --psycho-shadow:    0 8px 32px rgba(108,99,255,0.10);
+  --psycho-shadow-lg: 0 20px 60px rgba(108,99,255,0.16);
+}
+
+/* =============================================
+   2. BASE RESET FOR PORTAL
+   ============================================= */
+.psycho-portal *,
+.psycho-portal *::before,
+.psycho-portal *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.psycho-portal {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--psycho-text);
+  background: var(--psycho-bg);
+  padding: 32px 16px 64px;
+}
+
+/* =============================================
+   3. PORTAL CONTAINER
+   ============================================= */
+.psycho-portal .psycho-card,
+.psycho-portal .psycho-welcome-bar {
+  max-width: 860px;
+  margin: 0 auto 24px;
+}
+
+/* =============================================
+   4. CARD
+   ============================================= */
+.psycho-portal .psycho-card {
+  background: var(--psycho-card-bg);
+  border-radius: var(--psycho-radius);
+  box-shadow: var(--psycho-shadow);
+  border: 1px solid var(--psycho-border);
+  overflow: hidden;
+}
+
+.psycho-portal .psycho-entry-card {
+  padding: 0 0 32px;
+}
+
+/* =============================================
+   5. ENTRY HERO
+   ============================================= */
+.psycho-portal .psycho-entry-hero {
+  background: linear-gradient(135deg, #6c63ff 0%, #3a3590 100%);
+  color: #fff;
+  padding: 48px 40px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.psycho-portal .psycho-entry-hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.06);
+}
+.psycho-portal .psycho-entry-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -40px;
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.04);
+}
+
+.psycho-portal .psycho-hero-icon {
+  font-size: 3rem;
+  animation: psycho-float 3s ease-in-out infinite;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+@keyframes psycho-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+.psycho-portal .psycho-entry-hero h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  background: linear-gradient(90deg,#fff 0%,rgba(255,255,255,.8) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.psycho-portal .psycho-entry-hero p {
+  opacity: .88;
+  font-size: 1.05rem;
+}
+
+/* =============================================
+   6. FORM FIELDS
+   ============================================= */
+.psycho-portal .psycho-form {
+  padding: 32px 40px 0;
+}
+
+.psycho-portal .psycho-field {
+  margin-bottom: 20px;
+}
+
+.psycho-portal .psycho-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--psycho-text);
+  margin-bottom: 6px;
+}
+
+.psycho-portal .psycho-label .req {
+  color: var(--psycho-danger);
+}
+
+.psycho-portal .psycho-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--psycho-border);
+  border-radius: 10px;
+  font-size: .95rem;
+  color: var(--psycho-text);
+  background: #fff;
+  transition: border-color .2s, box-shadow .2s;
+  outline: none;
+}
+
+.psycho-portal .psycho-input:focus {
+  border-color: var(--psycho-primary);
+  box-shadow: 0 0 0 3px rgba(108,99,255,.12);
+}
+
+.psycho-portal .psycho-input-center {
+  text-align: center;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+}
+
+/* =============================================
+   7. TWO-COLUMN LAYOUT
+   ============================================= */
+.psycho-portal .psycho-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* =============================================
+   8. CUSTOM CHECKBOX
+   ============================================= */
+.psycho-portal .psycho-consent {
+  margin-bottom: 24px;
+}
+
+.psycho-portal .psycho-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  font-size: .875rem;
+  color: var(--psycho-muted);
+  line-height: 1.5;
+}
+
+.psycho-portal .psycho-checkbox-label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.psycho-portal .psycho-checkmark {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--psycho-border);
+  border-radius: 5px;
+  background: #fff;
+  margin-top: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s, border-color .2s;
+}
+
+.psycho-portal .psycho-checkbox-label input[type="checkbox"]:checked + .psycho-checkmark {
+  background: var(--psycho-primary);
+  border-color: var(--psycho-primary);
+}
+
+.psycho-portal .psycho-checkbox-label input[type="checkbox"]:checked + .psycho-checkmark::after {
+  content: '';
+  width: 5px;
+  height: 10px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg) translateY(-1px);
+  display: block;
+}
+
+/* =============================================
+   9. BUTTONS
+   ============================================= */
+.psycho-portal .psycho-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: .9rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 2px solid transparent;
+  text-decoration: none;
+  transition: all .2s;
+  white-space: nowrap;
+}
+
+.psycho-portal .psycho-btn-primary {
+  background: linear-gradient(135deg, #6c63ff 0%, #4834e0 100%);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(108,99,255,.35);
+}
+
+.psycho-portal .psycho-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(108,99,255,.45);
+  color: #fff;
+  text-decoration: none;
+}
+
+.psycho-portal .psycho-btn-outline {
+  background: transparent;
+  border-color: var(--psycho-primary);
+  color: var(--psycho-primary);
+}
+
+.psycho-portal .psycho-btn-outline:hover {
+  background: var(--psycho-primary);
+  color: #fff;
+}
+
+.psycho-portal .psycho-btn-ghost {
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  border-color: rgba(255,255,255,.3);
+}
+
+.psycho-portal .psycho-btn-ghost:hover {
+  background: rgba(255,255,255,.25);
+  color: #fff;
+}
+
+.psycho-portal .psycho-btn-full {
+  width: 100%;
+}
+
+.psycho-portal .psycho-btn-lg {
+  padding: 14px 32px;
+  font-size: 1rem;
+}
+
+.psycho-portal .psycho-btn-sm {
+  padding: 6px 14px;
+  font-size: .8rem;
+}
+
+.psycho-portal .psycho-btn:disabled,
+.psycho-portal .psycho-btn[disabled] {
+  opacity: .5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* =============================================
+   10. MESSAGES
+   ============================================= */
+.psycho-portal .psycho-msg {
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: .9rem;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.psycho-portal .psycho-msg-success {
+  background: #e6fbf0;
+  color: #1a7a47;
+  border: 1px solid #b2e8cf;
+}
+
+.psycho-portal .psycho-msg-error {
+  background: #fff0f0;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+.psycho-portal .psycho-msg-info {
+  background: #e8f0fe;
+  color: #1a56db;
+  border: 1px solid #bfcdf4;
+}
+
+/* =============================================
+   11. WELCOME BAR
+   ============================================= */
+.psycho-portal .psycho-welcome-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #6c63ff 0%, #4834e0 100%);
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: var(--psycho-radius);
+  margin-bottom: 16px;
+  box-shadow: var(--psycho-shadow);
+}
+
+.psycho-portal .psycho-welcome-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .95rem;
+}
+
+/* =============================================
+   12. TESTS GRID
+   ============================================= */
+.psycho-portal .psycho-section-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.psycho-portal .psycho-section-desc {
+  color: var(--psycho-muted);
+  font-size: .9rem;
+  margin-bottom: 20px;
+}
+
+.psycho-portal .psycho-tests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* =============================================
+   13. TEST CARDS
+   ============================================= */
+.psycho-portal .psycho-test-card {
+  border: 2px solid var(--psycho-border);
+  border-radius: 14px;
+  background: #fff;
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+  cursor: pointer;
+}
+
+.psycho-portal .psycho-test-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--psycho-shadow-lg);
+  border-color: var(--psycho-primary);
+}
+
+.psycho-portal .psycho-test-card-inner {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.psycho-portal .psycho-test-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.psycho-portal .psycho-test-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--psycho-dark);
+  margin: 0;
+}
+
+.psycho-portal .psycho-test-desc {
+  font-size: .85rem;
+  color: var(--psycho-muted);
+}
+
+/* =============================================
+   14. TAGS / BADGES
+   ============================================= */
+.psycho-portal .psycho-tag {
+  display: inline-block;
+  background: rgba(108,99,255,.1);
+  color: var(--psycho-primary);
+  font-size: .75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+/* =============================================
+   15. META ITEMS
+   ============================================= */
+.psycho-portal .psycho-test-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.psycho-portal .psycho-meta-item {
+  font-size: .8rem;
+  color: var(--psycho-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.psycho-portal .psycho-meta-locked {
+  color: var(--psycho-warning);
+}
+
+/* =============================================
+   16. PASSKEY MODAL
+   ============================================= */
+.psycho-portal .psycho-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26,26,46,.65);
+  backdrop-filter: blur(4px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.psycho-portal .psycho-modal {
+  animation: psycho-modal-in .25s ease;
+  width: 100%;
+  max-width: 440px;
+  padding: 16px;
+}
+
+@keyframes psycho-modal-in {
+  from { opacity: 0; transform: scale(.9) translateY(16px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.psycho-portal .psycho-modal-inner {
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px 32px 28px;
+  text-align: center;
+  box-shadow: 0 24px 64px rgba(0,0,0,.25);
+}
+
+.psycho-portal .psycho-modal-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.psycho-portal .psycho-modal-inner h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.psycho-portal .psycho-modal-test-name {
+  font-weight: 600;
+  color: var(--psycho-primary);
+  margin-bottom: 4px;
+}
+
+.psycho-portal .psycho-modal-hint {
+  font-size: .85rem;
+  color: var(--psycho-muted);
+  margin-bottom: 12px;
+}
+
+.psycho-portal .psycho-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+/* =============================================
+   17. SHAKE ANIMATION
+   ============================================= */
+@keyframes psycho-shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-8px); }
+  40%       { transform: translateX(8px); }
+  60%       { transform: translateX(-5px); }
+  80%       { transform: translateX(5px); }
+}
+
+.psycho-portal .psycho-shake {
+  animation: psycho-shake .4s ease;
+}
+
+/* =============================================
+   18. EXAM HEADER
+   ============================================= */
+.psycho-portal .psycho-exam-card {
+  padding: 0;
+}
+
+.psycho-portal .psycho-exam-header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #fff;
+  padding: 24px 32px;
+}
+
+.psycho-portal .psycho-exam-header-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.psycho-portal .psycho-exam-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 8px 0 0;
+}
+
+/* =============================================
+   19. TIMER BOX
+   ============================================= */
+.psycho-portal .psycho-timer-box {
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: monospace;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.psycho-portal .psycho-timer-box.warning {
+  background: rgba(255,152,0,.2);
+  border-color: rgba(255,152,0,.5);
+  color: #ffb74d;
+}
+
+.psycho-portal .psycho-timer-box.danger {
+  background: rgba(244,67,54,.2);
+  border-color: rgba(244,67,54,.5);
+  color: #ef5350;
+  animation: psycho-blink 1s ease infinite;
+}
+
+@keyframes psycho-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: .5; }
+}
+
+/* =============================================
+   20. PROGRESS BAR
+   ============================================= */
+.psycho-portal .psycho-progress-wrap {
+  padding: 16px 32px;
+  background: #f7f8fc;
+  border-bottom: 1px solid var(--psycho-border);
+}
+
+.psycho-portal .psycho-progress-bar {
+  height: 8px;
+  background: var(--psycho-border);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.psycho-portal .psycho-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6c63ff, #9c63ff);
+  border-radius: 999px;
+  transition: width .4s ease;
+}
+
+.psycho-portal .psycho-progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: .8rem;
+  color: var(--psycho-muted);
+}
+
+/* =============================================
+   21. QUESTION BLOCKS
+   ============================================= */
+.psycho-portal .psycho-questions-container {
+  padding: 24px 32px;
+}
+
+.psycho-portal .psycho-q-block {
+  margin-bottom: 28px;
+  padding: 20px 24px;
+  border: 2px solid var(--psycho-border);
+  border-radius: 12px;
+  background: #fafbfc;
+  transition: border-color .2s, background .2s;
+}
+
+.psycho-portal .psycho-q-block.answered {
+  border-color: var(--psycho-primary);
+  background: rgba(108,99,255,.03);
+}
+
+.psycho-portal .psycho-q-num {
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--psycho-primary);
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.psycho-portal .psycho-q-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--psycho-dark);
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+/* =============================================
+   22. RADIO OPTIONS
+   ============================================= */
+.psycho-portal .psycho-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.psycho-portal .psycho-option-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 2px solid var(--psycho-border);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: .9rem;
+  transition: background .15s, border-color .15s;
+}
+
+.psycho-portal .psycho-option-label:hover {
+  background: rgba(108,99,255,.06);
+  border-color: rgba(108,99,255,.3);
+}
+
+.psycho-portal .psycho-option-label input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.psycho-portal .psycho-radio-circle {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--psycho-border);
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .15s;
+}
+
+.psycho-portal .psycho-option-label input[type="radio"]:checked ~ .psycho-radio-circle {
+  border-color: var(--psycho-primary);
+  background: var(--psycho-primary);
+}
+
+.psycho-portal .psycho-option-label input[type="radio"]:checked ~ .psycho-radio-circle::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  display: block;
+}
+
+.psycho-portal .psycho-option-label.selected {
+  background: rgba(108,99,255,.07);
+  border-color: var(--psycho-primary);
+}
+
+/* =============================================
+   23. EXAM FOOTER
+   ============================================= */
+.psycho-portal .psycho-exam-footer {
+  padding: 20px 32px;
+  border-top: 1px solid var(--psycho-border);
+  background: #f7f8fc;
+  text-align: center;
+}
+
+.psycho-portal .psycho-unanswered-note {
+  font-size: .85rem;
+  color: var(--psycho-warning);
+  margin-bottom: 12px;
+}
+
+/* =============================================
+   24. RESULTS WRAPPER & CARD
+   ============================================= */
+.psycho-portal .psycho-result-card {
+  padding: 0 0 32px;
+  text-align: center;
+}
+
+.psycho-portal .psycho-result-top {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #fff;
+  padding: 40px 32px 32px;
+}
+
+/* =============================================
+   25. SCORE RING
+   ============================================= */
+.psycho-portal .psycho-score-ring-wrap {
+  position: relative;
+  display: inline-block;
+  margin: 20px auto;
+}
+
+.psycho-portal .psycho-score-ring {
+  transform: rotate(-90deg);
+}
+
+.psycho-portal .psycho-ring-bg {
+  stroke: rgba(255,255,255,.15);
+}
+
+.psycho-portal .psycho-ring-fill {
+  stroke: #6c63ff;
+  transition: stroke-dashoffset 1.5s cubic-bezier(.4,0,.2,1);
+}
+
+.psycho-portal .psycho-ring-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.psycho-portal .psycho-score-num {
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.psycho-portal .psycho-score-label {
+  font-size: .8rem;
+  opacity: .75;
+}
+
+/* =============================================
+   26. RESULT LABEL / DESC
+   ============================================= */
+.psycho-portal .psycho-result-emoji {
+  font-size: 3rem;
+  margin-bottom: 8px;
+}
+
+.psycho-portal .psycho-result-name-line {
+  font-size: 1.1rem;
+  opacity: .85;
+  margin-bottom: 2px;
+}
+
+.psycho-portal .psycho-result-test-name {
+  font-size: .9rem;
+  opacity: .65;
+  margin-bottom: 0;
+}
+
+.psycho-portal .psycho-result-label {
+  display: inline-block;
+  padding: 6px 20px;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-top: 10px;
+}
+
+.psycho-portal .psycho-result-desc {
+  font-size: .95rem;
+  opacity: .85;
+  margin-top: 12px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =============================================
+   27. RECOMMENDATION BOX
+   ============================================= */
+.psycho-portal .psycho-recommendation-box {
+  background: #fff8e1;
+  border-left: 4px solid #ffc107;
+  border-radius: 0 12px 12px 0;
+  padding: 16px 24px;
+  margin: 0 32px 20px;
+  text-align: left;
+}
+
+.psycho-portal .psycho-recommendation-box h4 {
+  font-size: .9rem;
+  font-weight: 700;
+  color: #e65100;
+  margin-bottom: 6px;
+}
+
+.psycho-portal .psycho-recommendation-box p {
+  font-size: .9rem;
+  color: #5d4037;
+  margin: 0;
+}
+
+/* =============================================
+   28. TRAITS CARD
+   ============================================= */
+.psycho-portal .psycho-traits-card {
+  margin: 0 32px 24px;
+  background: #f7f8fc;
+  border-radius: 14px;
+  padding: 24px;
+  text-align: left;
+}
+
+.psycho-portal .psycho-traits-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.psycho-portal .psycho-trait-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.psycho-portal .psycho-trait-row .psycho-trait-name {
+  font-size: .85rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.psycho-portal .psycho-trait-bar-bg {
+  height: 10px;
+  background: var(--psycho-border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+/* =============================================
+   29. ANIMATED TRAIT FILL
+   ============================================= */
+.psycho-portal .psycho-trait-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6c63ff, #9c63ff);
+  border-radius: 999px;
+  width: 0%;
+  transition: width 1s ease;
+}
+
+/* =============================================
+   30. RESULT ACTION BUTTONS
+   ============================================= */
+.psycho-portal .psycho-result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  padding: 0 32px;
+}
+
+/* =============================================
+   31. EMPTY STATE
+   ============================================= */
+.psycho-portal .psycho-empty-state {
+  text-align: center;
+  padding: 48px 32px;
+  color: var(--psycho-muted);
+}
+
+.psycho-portal .psycho-empty-icon {
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+
+.psycho-portal .psycho-empty-state h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--psycho-text);
+}
+
+/* =============================================
+   32. CONFETTI
+   ============================================= */
+.psycho-portal .psycho-confetti-wrap {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99998;
+}
+
+.psycho-portal .psycho-confetti-piece {
+  position: absolute;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  opacity: 1;
+  animation: psycho-confetti-fall linear forwards;
+}
+
+@keyframes psycho-confetti-fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* =============================================
+   33. LOADING STATE
+   ============================================= */
+.psycho-portal .psycho-loading-qs {
+  text-align: center;
+  padding: 32px;
+  color: var(--psycho-muted);
+  font-size: 1rem;
+}
+
+/* =============================================
+   34. CHART WRAP
+   ============================================= */
+.psycho-portal .psycho-chart-wrap {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* =============================================
+   35. RESPONSIVE — MOBILE
+   ============================================= */
+@media (max-width: 640px) {
+  .psycho-portal {
+    padding: 16px 8px 48px;
+  }
+
+  .psycho-portal .psycho-entry-hero {
+    padding: 32px 20px 24px;
+  }
+
+  .psycho-portal .psycho-entry-hero h2 {
+    font-size: 1.4rem;
+  }
+
+  .psycho-portal .psycho-form {
+    padding: 20px 20px 0;
+  }
+
+  .psycho-portal .psycho-two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .psycho-portal .psycho-tests-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .psycho-portal .psycho-welcome-bar {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .psycho-portal .psycho-exam-header {
+    padding: 16px 20px;
+  }
+
+  .psycho-portal .psycho-exam-header-inner {
+    flex-direction: column;
+  }
+
+  .psycho-portal .psycho-exam-title {
+    font-size: 1.2rem;
+  }
+
+  .psycho-portal .psycho-progress-wrap,
+  .psycho-portal .psycho-questions-container,
+  .psycho-portal .psycho-exam-footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .psycho-portal .psycho-result-top {
+    padding: 28px 20px 24px;
+  }
+
+  .psycho-portal .psycho-recommendation-box,
+  .psycho-portal .psycho-traits-card {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .psycho-portal .psycho-result-actions {
+    padding: 0 16px;
+    flex-direction: column;
+  }
+
+  .psycho-portal .psycho-btn-lg {
+    width: 100%;
+  }
+}
